@@ -12,7 +12,7 @@
 # probably be cleaned up to pass arguments as expanded variables...
 
 declare -a esxhost
-esxhost=( $( esxcfg-scsidevs --server YourEsxHost --credstore $CS -m | awk '{if($NF !~ /phxesx/)print "/vmfs/volumes/"$NF}') )
+esxhost=( $( esxcfg-scsidevs --server YourEsxHost --credstore $CS -m | awk '{if($NF !~ /YourEsxHost/)print "/vmfs/volumes/"$NF}') )
 
 apush(){
   local grab=$(vmkfstools --server YourEsxHost --credstore $CS /vmfs/volumes/esx_templates --queryfs -P)
